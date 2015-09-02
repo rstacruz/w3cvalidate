@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+var read = require('read-input')
+var format = require('util').format
+var argv = require('yargs').argv
+var validate = require('../index')
+
+var filename
+
+read(argv._).then(function (res) {
+  filename = res.files ? res.files[0].name : '[stdin]'
+  return validate(res.data)
+})
+.then(function (res) {
+  res.results.forEach(printResult.bind(this, filename))
+  printSummary(res)
+  if (res.errors > 0) process.exit(1)
+})
+.catch(function (err) {
+  console.error(err.message)
+  throw err
+})
+
+function printResult (filename, result) {
+  if (result.line === 0) {
+    console.log(format('%s: %s',
+      filename,
+      result.message
+    ))
+  } else {
+    console.log(format('%s:%s:%s: %s: %s',
+      filename,
+      result.line,
+      result.column,
+      result.type,
+      result.message
+    ))
+  }
+}
+
+function printSummary (res) {
+  if (res.errors > 0 || res.warnings > 0) {
+    console.log(format('\n%s errors, %s warnings',
+      res.errors, res.warnings
+    ))
+  } else {
+    console.log('\nno issues found')
+  }
+}

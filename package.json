@@ -1,0 +1,35 @@
+{
+  "name": "w3cvalidate",
+  "description": "w3c validator",
+  "version": "1.0.0",
+  "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
+  "bin": {
+    "w3cvalidate": "bin/w3cvalidate"
+  },
+  "bugs": {
+    "url": "https://github.com/rstacruz/w3cvalidate/issues"
+  },
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "read-input": "^0.3.1",
+    "request": "^2.61.0",
+    "yargs": "^3.23.0"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/rstacruz/w3cvalidate#readme",
+  "keywords": [
+    "html",
+    "validate",
+    "validator",
+    "w3c"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rstacruz/w3cvalidate.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
