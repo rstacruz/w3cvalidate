@@ -1,5 +1,7 @@
 # validator
 
+Command-line access to https://validator.w3.org/nu/
+
 ```sh
 $ validate index.html
 
@@ -8,6 +10,10 @@ index.html: Using the schema for HTML with SVG 1.1, MathML 3.0, RDFa 1.1, and IT
 index.html:124:7: info: Consider using the h1 element as a top-level heading only (all h1 elements are treated as top-level headings by many screen readers and other tools).
 index.html:133:3: info: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.
 ```
+
+<br>
+
+## Programmatic access
 
 via JavaScript:
 
