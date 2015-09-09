@@ -3,7 +3,7 @@
 Command-line access to https://validator.w3.org/nu/
 
 ```sh
-$ validate index.html
+$ w3cvalidate index.html
 
 index.html: The Content-Type was text/html. Using the HTML parser.
 index.html: Using the schema for HTML with SVG 1.1, MathML 3.0, RDFa 1.1, and ITS 2.0 support.
