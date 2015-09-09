@@ -13,9 +13,16 @@ index.html:133:3: info: Section lacks heading. Consider using h2-h6 elements to 
 
 <br>
 
-## Programmatic access
+## Usage
 
-via JavaScript:
+Command-line via Node.js/iojs:
+
+```
+npm install -g w3cvalidate
+w3cvalidate <FILE>
+```
+
+Programmatic usage via JavaScript:
 
 ```js
 var validate = require('w3cvalidate')
@@ -34,3 +41,17 @@ validate('<!doctype html>...')
   ]
 })
 ```
+
+<br>
+
+## Thanks
+
+**w3cvalidate** © 2015+, Rico Sta. Cruz. Released under the [MIT] License.<br>
+Authored and maintained by Rico Sta. Cruz with help from contributors ([list][contributors]).
+
+> [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
+> GitHub [@rstacruz](https://github.com/rstacruz) &nbsp;&middot;&nbsp;
+> Twitter [@rstacruz](https://twitter.com/rstacruz)
+
+[MIT]: http://mit-license.org/
+[contributors]: http://github.com/rstacruz/w3cvalidate/contributors
