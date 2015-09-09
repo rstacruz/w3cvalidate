@@ -27,22 +27,46 @@ function printResult (filename, result) {
       result.message
     ))
   } else {
-    console.log(format('%s:%s:%s: %s: %s',
+    console.log(format('%s:%s:%s: %s %s',
       filename,
       result.line,
       result.column,
-      result.type,
+      tagify(result.type),
       result.message
     ))
   }
 }
 
-function printSummary (res) {
-  if (res.errors > 0 || res.warnings > 0) {
-    console.log(format('\n%s errors, %s warnings',
-      res.errors, res.warnings
-    ))
+function tagify (type) {
+  var out = '' + type + ':'
+  if (!process.stdout.isTTY) return out
+
+  if (type === 'error') {
+   return '\033[31m' + out + '\033[0m'
+  } else if (type === 'warning') {
+   return '\033[33m' + out + '\033[0m'
+  } else if (type === 'info') {
+   return '\033[32m' + out + '\033[0m'
   } else {
-    console.log('\nno issues found')
+    return out
+  }
+}
+
+function printSummary (res) {
+  var msg, color
+  if (res.errors > 0 || res.warnings > 0) {
+    color = res.errors > 0 ? '31' : '33'
+    msg = format('%s errors, %s warnings',
+      res.errors, res.warnings
+    )
+  } else {
+    color = '32'
+    msg = 'no issues found'
+  }
+
+  if (process.stdout.isTTY) {
+    console.log('\n\033[' + color + 'm' + msg + '\033[0m')
+  } else {
+    console.log('\n' + msg)
   }
 }
