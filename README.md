@@ -13,6 +13,18 @@ index.html:133:3: info: Section lacks heading. Consider using h2-h6 elements to 
 
 <br>
 
+## :warning: Deprecation notice
+
+It's better to use `curl` with the validator.w3.org's `?out=gnu` setting.
+
+```sh
+alias w3cvalidate='curl -H "Content-Type: text/html; charset=utf-8" --data-binary @- "https://validator.w3.org/nu/?out=gnu"'
+
+cat FILE_TO_VALIDATE.html | w3cvalidate
+```
+
+<br>
+
 ## Usage
 
 Command-line via Node.js/iojs:
